@@ -38,7 +38,6 @@
 * [📆 招聘时间岗位](#recruitment-time-post)
 * [👍 内推](#recommend)
 * [👬 贡献者](#contributor)
-* [🍭 支持赞助](#support-sponsor)
 * [📜 License](#license)
 
 
@@ -210,7 +209,7 @@ inline int A::doA() { return 0; }   // 需要显式内联
 > [Are "inline virtual" member functions ever actually "inlined"?](http://www.cs.technion.ac.il/users/yechiel/c++-faq/inline-virtuals.html)
 
 * 虚函数可以是内联函数，内联是可以修饰虚函数的，但是当虚函数表现多态性的时候不能内联。
-* 内联是在编译器建议编译器内联，而虚函数的多态性在运行期，编译器无法知道运行期调用哪个代码，因此虚函数表现为多态性时（运行期）不可以内联。
+* 内联是在编译期建议编译器内联，而虚函数的多态性在运行期，编译器无法知道运行期调用哪个代码，因此虚函数表现为多态性时（运行期）不可以内联。
 * `inline virtual` 唯一可以内联的时候是：编译器知道所调用的对象是哪个类（如 `Base::who()`），这只有在编译器具有实际对象而不是对象的指针或引用时才会发生。
 
 虚函数内联使用
@@ -2351,7 +2350,7 @@ TCP的拥塞控制图
 3. 客户端收到服务端回复的 ACK，此时从客户端到服务器的连接已释放（但服务端到客户端的连接还未释放，并且客户端还可以接收数据）；
 4. 服务端继续发送之前没发完的数据给客户端；
 5. 服务端发送 FIN+ACK 给客户端，说明服务端发送完了数据（请求释放从服务端到客户端的连接，就算没收到客户端的回复，过段时间也会自动释放）；
-6. 客户端收到服务端的 FIN+ACK，并回复 ACK 给客户端（同意释放从服务端到客户端的连接）；
+6. 客户端收到服务端的 FIN+ACK，并回复 ACK 给服务端（同意释放从服务端到客户端的连接）；
 7. 服务端收到客户端的 ACK 后，释放从服务端到客户端的连接。
 
 ##### TCP 为什么要进行四次挥手？
@@ -3425,12 +3424,6 @@ int main( void )
 ## 👬 贡献者
 
 <a href="https://github.com/huihut/interview/graphs/contributors"><img src="https://opencollective.com/interview/contributors.svg?button=false" /></a>
-
-<a id="support-sponsor"></a>
-
-## 🍭 支持赞助
-
-**[Avalive](https://store.steampowered.com/app/1137770/Avalive/)**：一个面部捕捉的虚拟形象扮演软件。
 
 <a id="license"></a>
 
